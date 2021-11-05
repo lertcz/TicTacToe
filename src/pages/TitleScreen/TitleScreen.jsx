@@ -7,7 +7,7 @@ function TitleScreen() {
 
     function createGame() {
         console.log("navigate to game now");
-        navigate("/wait")
+        navigate("/TicTacToe/wait")
     }
 
     function joinGame() {

@@ -11,7 +11,7 @@ function WaitingRoom() {
                 <p className="text-5xl">Waiting for the opponent ...</p>
             </div>
             <div>
-                <button className="button marginTopPlus" onClick={() => navigate("/")}>Back</button>
+                <button className="button marginTopPlus" onClick={() => navigate("/TicTacToe")}>Back</button>
                 <button className="button marginTopPlus">Load Game</button>
             </div>
         </div>
