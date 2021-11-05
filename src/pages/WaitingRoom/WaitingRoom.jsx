@@ -1,13 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../TitleScreen/TitleScreen.css";
+import "../../index.css";
 
 function WaitingRoom() {
     const navigate = useNavigate();
 
     return (
-        <div className="centerScreen">
-
+        <div className="centerDivElement min-h-screen">
+            <div>
+                <p className="text-5xl">Waiting for the opponent ...</p>
+            </div>
+            <div>
+                <button className="button marginTopPlus" onClick={() => navigate("/")}>Back</button>
+                <button className="button marginTopPlus">Load Game</button>
+            </div>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Board from "../../components/Board/Board"
-import "./Game.css";
+import "../../index.css";
 
 function Game() {
   const [Xturn, setXturn] = useState(true)
@@ -53,7 +53,7 @@ function Game() {
 
   return (
       <div className="grid grid-cols-3 grid-rows-4 min-h-screen text-5xl">
-        <div className="gameTitle col-span-3"><p>{setTitle()}</p></div>
+        <div className="centerDivElement col-span-3"><p>{setTitle()}</p></div>
         <Board squares={squares} handleClick={handleClick} />
 
       </div>
