@@ -5,10 +5,6 @@ import "../../index.css";
 function WaitingRoom() {
     const navigate = useNavigate();
 
-    function load() {
-        console.log("Loading Game!")
-        navigate("/TicTacToe/game")
-    }
     return (
         <div className="centerDivElement min-h-screen">
             <div>
@@ -16,7 +12,7 @@ function WaitingRoom() {
             </div>
             <div>
                 <button className="button marginTopPlus" onClick={() => navigate("/TicTacToe")}>Back</button>
-                <button className="button marginTopPlus" onClick={load}>Load Game</button>
+                <button className="button marginTopPlus" onClick={() => navigate("/TicTacToe/game")}>Load Game</button>
             </div>
         </div>
     )
