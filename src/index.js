@@ -5,14 +5,14 @@ import './index.css';
 import Router from './pages/Router';
 //import TitleScreen from './pages/TitleScreen/TitleScreen';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter basename="/TicTacToe">
         <Router />
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
   ,
   document.getElementById('root')
