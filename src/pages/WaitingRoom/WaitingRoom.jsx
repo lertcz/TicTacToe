@@ -12,7 +12,7 @@ function WaitingRoom() {
             </div>
             <div>
                 <button className="button marginTopPlus" onClick={() => navigate("/TicTacToe")}>Back</button>
-                <button className="button marginTopPlus">Load Game</button>
+                <button className="button marginTopPlus" onClick={() => navigate("/TicTacToe/game")}>Load Game</button>
             </div>
         </div>
     )
