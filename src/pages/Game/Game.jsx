@@ -52,8 +52,8 @@ function Game() {
   }
 
   return (
-      <div class="grid grid-cols-3 grid-rows-4 min-h-screen text-5xl">
-        <div class="gameTitle col-span-3"><p>{setTitle()}</p></div>
+      <div className="grid grid-cols-3 grid-rows-4 min-h-screen text-5xl">
+        <div className="gameTitle col-span-3"><p>{setTitle()}</p></div>
         <Board squares={squares} handleClick={handleClick} />
 
       </div>
