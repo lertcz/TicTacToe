@@ -6,8 +6,8 @@
     @apply flex flex-col justify-center items-center
 }
 
-.divide{
-
+.squareDim{
+    @apply my-4 mx-48 bg-gray-700 bg-opacity-10
 }
 
 .textField{

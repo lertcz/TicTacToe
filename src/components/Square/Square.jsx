@@ -2,7 +2,7 @@ import React from "react";
 
 function Square(props) {
     return (
-        <button onClick={() => props.handleClick(props.index)}>
+        <button className="squareDim" onClick={() => props.handleClick(props.index)}>
             {props.value}
         </button>
     )

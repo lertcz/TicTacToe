@@ -44,9 +44,8 @@ function Game() {
     }
   }
 
-  function setTitle() {
+  function nextTurn() {
     if(winner) {
-      //return winner + " won the game!"
       navigate("/TicTacToe/game/rematch/" + winner);
     }
     else if(!squares.includes(null)) {
@@ -57,7 +56,7 @@ function Game() {
 
   return (
       <div className="grid grid-cols-3 grid-rows-4 min-h-screen text-5xl">
-        <div className="centerDivElement col-span-3"><p>{setTitle()}</p></div>
+        <div className="centerDivElement col-span-3"><p>{nextTurn()}</p></div>
         <Board squares={squares} handleClick={handleClick} />
 
       </div>
