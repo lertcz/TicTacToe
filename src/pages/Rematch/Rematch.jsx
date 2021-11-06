@@ -8,7 +8,7 @@ import "../../index.css";
 function WhoWon() {
     const { winner } = useParams()
 
-    if (winner !== "false") {
+    if (winner !== "draw") {
         return winner + " won the game!"
     }
     else {

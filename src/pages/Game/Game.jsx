@@ -50,7 +50,7 @@ function Game() {
       navigate("/TicTacToe/game/rematch/" + winner);
     }
     else if(!squares.includes(null)) {
-      navigate("/TicTacToe/game/rematch/" + winner)
+      navigate("/TicTacToe/game/rematch/draw")
     }
     return Xturn ? "X's turn" : "O's turn"
   }
