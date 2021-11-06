@@ -1,6 +1,20 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { 
+    useNavigate, 
+    useParams 
+} from "react-router-dom";
 import "../../index.css";
+
+function WhoWon() {
+    const { winner } = useParams()
+
+    if (winner !== "false") {
+        return winner + " won the game!"
+    }
+    else {
+        return "Draw!"
+    }
+}
 
 function Rematch() {
     const navigate = useNavigate();
@@ -8,7 +22,7 @@ function Rematch() {
     return (
         <div className="centerDivElement min-h-screen">
             <div>
-                <p className="text-5xl">Waiting for the opponent ...</p>
+                <p className="text-5xl">{WhoWon()}</p>
             </div>
             <div>
                 <button className="button marginTopPlus" onClick={() => navigate("/TicTacToe")}>Menu</button>

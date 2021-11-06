@@ -47,10 +47,10 @@ function Game() {
   function setTitle() {
     if(winner) {
       //return winner + " won the game!"
-      navigate("/TicTacToe/game/rematch:"+winner);
+      navigate("/TicTacToe/game/rematch/" + winner);
     }
     else if(!squares.includes(null)) {
-      return "Draw!"
+      navigate("/TicTacToe/game/rematch/" + winner)
     }
     return Xturn ? "X's turn" : "O's turn"
   }

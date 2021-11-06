@@ -12,7 +12,7 @@ function Router() {
           <Route exact path="/TicTacToe" element={<TitleScreen />} /> {/* /TicTacToe  etc.*/}
           <Route exact path="/TicTacToe/wait" element={<WaitingRoom />} />
           <Route exact path="/TicTacToe/game" element={<Game />} />
-          <Route exact path="/TicTacToe/game/rematch" element={<Rematch />} />
+          <Route path="/TicTacToe/game/rematch/:winner" element={<Rematch />} />
         </Routes>
     )
 }
