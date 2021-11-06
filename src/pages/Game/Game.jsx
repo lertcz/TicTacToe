@@ -55,7 +55,7 @@ function Game() {
   }
 
   return (
-      <div className="grid grid-cols-3 grid-rows-4 min-h-screen text-5xl">
+      <div className="board grid grid-cols-3 grid-rows-4 min-h-screen text-5xl">
         <div className="centerDivElement col-span-3"><p>{nextTurn()}</p></div>
         <Board squares={squares} handleClick={handleClick} />
 
