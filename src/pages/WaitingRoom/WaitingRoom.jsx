@@ -6,7 +6,7 @@ function WaitingRoom() {
     const navigate = useNavigate();
 
     return (
-        <div className="centerDivElement min-h-screen">
+        <div className="centerDivElementCol min-h-screen">
             <div>
                 <p className="text-5xl">Waiting for the opponent ...</p>
             </div>

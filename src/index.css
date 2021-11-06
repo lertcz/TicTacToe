@@ -3,18 +3,25 @@
 @tailwind utilities;
 
 .centerDivElement{
+    @apply flex justify-center items-center
+}
+
+.centerDivElementCol{
     @apply flex flex-col justify-center items-center
 }
 
+.boardDiv{
+    @apply w-screen h-screen
+}
+
 .board{
-    @apply place-items-center
+    @apply  place-items-center 
+            w-screen h-screen
+            md:w-2/5 md:h-4/5
 }
 
 .squareDim{
-    @apply  
-            sm:w-1/5 sm:h-1/4 sm:bg-pink-500
-            lg:w-1/3 lg:h-1/4 lg:bg-yellow-500
-            w-1/2 h-1/2 bg-gray-700 bg-opacity-10
+    @apply w-3/4 h-3/4 bg-gray-700 bg-opacity-75 m-3 text-6xl
 }
 
 .textField{

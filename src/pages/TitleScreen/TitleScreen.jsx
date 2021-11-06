@@ -6,7 +6,6 @@ function TitleScreen() {
     const navigate = useNavigate();
 
     function createGame() {
-        console.log("navigate to game now");
         navigate("/TicTacToe/wait")
     }
 
@@ -15,7 +14,7 @@ function TitleScreen() {
     }
 
     return (
-        <div className="centerDivElement min-h-screen">
+        <div className="centerDivElementCol min-h-screen">
             <div>
                 <p className="text-5xl">TicTacToe</p>
             </div>
