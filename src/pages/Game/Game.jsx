@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Board from "../../components/Board/Board"
 import "../../index.css";
 
 function Game() {
+  const navigate = useNavigate();
+
   const [Xturn, setXturn] = useState(true)
   const [squares, setSquares] = useState(Array(9).fill(null))
   const winner = calculateWinner(squares)
@@ -43,7 +46,8 @@ function Game() {
 
   function setTitle() {
     if(winner) {
-      return winner + " won the game!"
+      //return winner + " won the game!"
+      navigate("/TicTacToe/game/rematch:"+winner);
     }
     else if(!squares.includes(null)) {
       return "Draw!"
