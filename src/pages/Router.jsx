@@ -1,20 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import TitleScreen from "./TitleScreen/TitleScreen";
-import WaitingRoom from "./WaitingRoom/WaitingRoom";
+//import TitleScreen from "./TitleScreen/TitleScreen";
+import PeerTest from "./PeerTest/PeerTest";
+import PeerWait from "./PeerTest/PeerWait";
+//import WaitingRoom from "./WaitingRoom/WaitingRoom";
 import Game from "./Game/Game";
 import Rematch from "./Rematch/Rematch";
 
+import Peer from "peerjs";
+
+export const PeerInfo = React.createContext()
+
 function Router() {
-    return(
-        <Routes>
-          <Route exact path="/TicTacToe" element={<TitleScreen />} /> {/* /TicTacToe  etc.*/}
-          <Route exact path="/TicTacToe/wait" element={<WaitingRoom />} />
-          <Route exact path="/TicTacToe/game" element={<Game />} />
-          <Route path="/TicTacToe/game/rematch/:winner" element={<Rematch />} />
-        </Routes>
-    )
+  const [peerid, setPeerid] = useState(new Peer())
+  
+  return(
+    <PeerInfo.Provider value={peerid}>
+      <Routes>
+        <Route exact path="/TicTacToe" element={<PeerTest />} /> {/* <TitleScreen /> */}
+        <Route exact path="/TicTacToe/wait" element={<PeerWait />} /> {/* <WaitingRoom /> */}
+        <Route exact path="/TicTacToe/game" element={<Game />} />
+        <Route path="/TicTacToe/game/rematch/:winner" element={<Rematch />} />
+      </Routes>
+    </PeerInfo.Provider>
+  )
 }
 
 export default Router

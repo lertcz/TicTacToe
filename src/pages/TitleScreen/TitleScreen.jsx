@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../../index.css";
+import Peer from 'peerjs';
 
 function TitleScreen() {
     const navigate = useNavigate();
@@ -22,7 +23,7 @@ function TitleScreen() {
                 <button className="button" onClick={createGame}>Create Game</button>
             </div>
             <div>
-                <input className="textField" placeholder="Room ID" size="16"></input>
+                <input className="textField" id="roomID"placeholder="Room ID" size="16"></input>
             </div>
             <div>
                 <button className="button" onClick={joinGame}>Join Game</button>
