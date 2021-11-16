@@ -7,12 +7,16 @@ import Router from './pages/Router';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 
+import PeerProvider from "./pages/PeerInfo/PeerInfo";
+
 
 ReactDOM.render(
   <React.StrictMode>
-      <BrowserRouter> {/* <HashRouter basename="/TicTacToe"> */}
+    <BrowserRouter> {/* <HashRouter basename="/TicTacToe"> */}
+      <PeerProvider>
           <Router />
-      </BrowserRouter>
+      </PeerProvider>
+    </BrowserRouter>
   </React.StrictMode>
   ,
   document.getElementById('root')

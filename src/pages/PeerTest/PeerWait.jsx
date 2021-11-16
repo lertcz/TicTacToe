@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../index.css";
-import { PeerInfo } from "../Router";
+
+import { PeerContext } from "..//PeerInfo/PeerInfo";
 
 
 
@@ -9,15 +10,13 @@ import { PeerInfo } from "../Router";
 function PeerWait() {
     const navigate = useNavigate();
 
-    const peerid = useContext(PeerInfo)
-
-    console.log(peerid)
-
+    const contextProps = useContext(PeerContext)
+    console.log("Context Props: ", contextProps.id)
     return (
         <div className="centerDivElementCol min-h-screen">
             <div>
                 <p className="text-5xl">Waiting for the opponent ...</p>
-                <p>Your ID:</p>
+                <p>{"Your ID: "}</p>
             </div>
             <div>
                 <button className="button marginTopPlus" onClick={() => navigate("/TicTacToe")}>Back</button>

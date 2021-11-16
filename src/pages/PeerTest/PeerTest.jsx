@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../index.css";
-//import Peer from 'peerjs';
-
 
 function PeerTest() {
     const navigate = useNavigate();
-
-    const [idValue, setidValue] = useState("")
-
 
     function createGame() {
         navigate("/TicTacToe/wait")
