@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Board from "../../components/Board/Board"
 import "../../index.css";
+
+import { PeerContext } from "..//PeerInfo/PeerInfo";
 
 function Game() {
   const navigate = useNavigate();
@@ -9,6 +11,31 @@ function Game() {
   const [Xturn, setXturn] = useState(true)
   const [squares, setSquares] = useState(Array(9).fill(null))
   const winner = calculateWinner(squares)
+
+  const contextProps = useContext(PeerContext)
+  alert(contextProps.conn)
+
+  /* connection.peer1.on('signal', (data) => {
+    console.log('peer1 signal', data)
+    connection.peer2.signal(data)
+  })
+
+  connection.peer2.on('signal', (data) => {
+      console.log('peer2 signal', data)
+      connection.peer1.signal(data)
+  }) */
+
+  /* connection.peer1.on('signal', (data) => console.log('peer1 signal', data))
+  connection.peer1.on('connect', () => console.log('peer1 connected'))
+  connection.peer1.on('data', (data) => console.log('peer1 received', data))
+  connection.peer1.on('error', (error) => console.error('peer1 error', error))
+  connection.peer1.on('close', () => console.log('peer1 connection closed'))
+
+  connection.peer2.on('signal', (data) => console.log('peer2 signal', data))
+  connection.peer2.on('connect', () => console.log('peer2 connected'))
+  connection.peer2.on('data', (data) => console.log('peer2 received', data))
+  connection.peer2.on('error', (error) => console.error('peer2 error', error))
+  connection.peer2.on('close', () => console.log('peer2 connection closed')) */
 
   function calculateWinner(squares) {
     const lines = [

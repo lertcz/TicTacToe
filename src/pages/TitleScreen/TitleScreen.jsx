@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../index.css";
-import Peer from 'peerjs';
+import { PeerContext } from "../PeerInfo/PeerInfo";
 
 function TitleScreen() {
     const navigate = useNavigate();
+    const contextProps = useContext(PeerContext)
 
     const [idValue, setIdValue] = useState('')
 
@@ -13,10 +14,26 @@ function TitleScreen() {
     }
 
     const joinGame = async(e) => {
-        e.preventDefault();
 
-        console.log(idValue);
+        if(idValue !== ""){
+            e.preventDefault();
+
+            //contextProps.peer.signal(data)
+
+            contextProps.initConn(idValue)
+        }
     }
+
+    useEffect(() => {
+        console.log("conn: ", contextProps.conn)
+
+    }, [contextProps.conn])
+
+    var data = "data"
+
+    contextProps.peer.on('data', data => {
+        console.log('got a message from other peer: ' + data)
+    })
 
     return (
         <div className="centerDivElementCol min-h-screen">
@@ -35,6 +52,13 @@ function TitleScreen() {
                     <button className="button" onClick={joinGame}>Join Game</button>
                 </div>
             </form>
+            <button className="button" onClick={() => console.log(contextProps.peer.id)}>Pear ID</button>
+            <button className="button" onClick={() => console.log("conn: ", contextProps.conn)}>Conn ID</button>
+            <h1>{data}</h1>
+            <button className="button" onClick={() => {
+                contextProps.peer.send("hello")
+            }}>Send</button>
+            
         </div>
     )
 }

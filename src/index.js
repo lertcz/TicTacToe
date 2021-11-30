@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import Game from './pages/Game/Game'
+
 import Router from './pages/Router';
-//import TitleScreen from './pages/TitleScreen/TitleScreen';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 

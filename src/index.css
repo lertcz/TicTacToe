@@ -32,6 +32,6 @@
     @apply m-5 bg-gradient-to-r from-purple-400 to-pink-500 hover:from-purple-500 hover:to-pink-600 text-white font-bold py-2 px-4 rounded
 }
 
-.marginTopPlus{
-    @apply mt-16
+.IDtext{
+    @apply mt-5
 }
