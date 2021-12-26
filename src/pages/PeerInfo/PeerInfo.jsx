@@ -4,6 +4,8 @@ import Peer from "peerjs";
 
 export const PeerContext = createContext()
 
+//TODO add text when opponent left 
+
 const PeerProvider = ({ children }) => {
     const navigate = useNavigate();
 
@@ -13,6 +15,8 @@ const PeerProvider = ({ children }) => {
     const [shape, setShape] = useState(null)
     const [onTurn, setOnTurn] = useState(false)
     const [squares, setSquares] = useState(Array(9).fill(null))
+
+    const [restartCount, setRCount] = useState(0)
 
     let connection = {
         peer: peer,
@@ -25,7 +29,10 @@ const PeerProvider = ({ children }) => {
 
         squares: squares,
         setSquares: setSquares,
-        joinPeer: updateConn
+        joinPeer: updateConn,
+
+        restartCount: restartCount,
+        setRCount: setRCount
     }
 
     function updateConn(id){
@@ -45,9 +52,17 @@ const PeerProvider = ({ children }) => {
             conn.on('open', function() {
                 conn.on('data', function(data) {
                     //console.log('Received data:', data);
-                    if (typeof(data) == "object") {
+                    if (typeof(data) === "object") {
                         setSquares(data)
                         setOnTurn(true)
+                    }
+                    else if (typeof(data) === "string") {
+                        if (data === "restartWait") {
+                            setRCount(restartCount + 1)
+                        }
+                        else if (data === "restart") {
+                            navigate("/TicTacToe/onlineGame")
+                        }
                     }
                     
                 });

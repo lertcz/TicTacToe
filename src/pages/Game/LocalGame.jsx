@@ -56,13 +56,20 @@ function LGame() {
 
   return (
     <div className="setScreenSize">
-      <div className="centerDivElement text-5xl">
-        <p>{nextTurn()}</p>
+      <div className="sideBar">
+        {/* !need to add that the opponent left */}
+        <button className="button" onClick={() => navigate("/TicTacToe")}>Menu</button>
       </div>
 
-      <div className="centerDivElement boardDiv">
-        <div className="board grid grid-rows-3 grid-cols-3">
-          <Board squares={squares} handleClick={handleClick} />
+      <div className="w-screen h-screen">
+        <div className="centerDivElement text-5xl">
+          <p>{nextTurn()}</p>
+        </div>
+
+        <div className="centerDivElement boardDiv">
+          <div className="board grid grid-rows-3 grid-cols-3">
+            <Board squares={squares} handleClick={handleClick} />
+          </div>
         </div>
       </div>
     </div>

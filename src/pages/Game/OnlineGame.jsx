@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Board from "../../components/Board/Board"
 import "../../index.css";
@@ -65,13 +65,20 @@ function OGame() {
 
   return (
     <div className="setScreenSize">
-      <div className="centerDivElement text-5xl">
-        <p>{nextTurn()}</p>
-      </div>
+      <div className="w-screen h-screen">
+        <div className="sideBar">
+          {/* !need to add that the opponent left */}
+          <button className="button" onClick={() => navigate("/TicTacToe")}>Menu</button>
+        </div>
 
-      <div className="centerDivElement boardDiv">
-        <div className="board grid grid-rows-3 grid-cols-3">
-          <Board squares={contextProps.squares} handleClick={handleClick} />
+        <div className="centerDivElement text-5xl">
+          <p>{nextTurn()}</p>
+        </div>
+
+        <div className="centerDivElement boardDiv">
+          <div className="board grid grid-rows-3 grid-cols-3">
+            <Board squares={contextProps.squares} handleClick={handleClick} />
+          </div>
         </div>
       </div>
     </div>
