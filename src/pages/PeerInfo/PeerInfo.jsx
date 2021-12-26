@@ -1,45 +1,70 @@
-import React, { useState, createContext } from "react";
+import React, { useState, useEffect, createContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Peer from "peerjs";
 
 export const PeerContext = createContext()
 
 const PeerProvider = ({ children }) => {
+    const navigate = useNavigate();
 
     const [conn, setConn] = useState(null)
-    const peer = new Peer()
+    const [peer] = useState(new Peer())
+
+    const [shape, setShape] = useState(null)
+    const [onTurn, setOnTurn] = useState(false)
+    const [squares, setSquares] = useState(Array(9).fill(null))
 
     let connection = {
         peer: peer,
         conn: conn,
-        initConn: updateConn
+
+        shape: shape,
+
+        onTurn: onTurn,
+        setOnTurn: setOnTurn,
+
+        squares: squares,
+        setSquares: setSquares,
+        joinPeer: updateConn
     }
 
     function updateConn(id){
-        var conn = connection.peer.connect(id)
-        setConn(conn)
-
-        conn.on('open', function() {
-            // Receive messages
-            conn.on('data', function(data) {
-              console.log('Received', data);
-            });
-          
-            // Send messages
-            conn.send('Hello!');
-          });
+        setShape("O")
+        setConn(peer.connect(id))
     }
 
-    connection.peer.on('error', err => console.log('error', err))
+    peer.on('connection', function(recievedConnection) {
+        setShape("X")
+        setOnTurn(true)
+        setConn(recievedConnection)
+        navigate("/TicTacToe/onlineGame")
+    });
 
-    connection.peer.on('connect', () => {
-        console.log('CONNECT')
-    })
-
-    connection.peer.on('close', () => {console.log("Conn closed!")})
-
-    connection.peer.on('data', data => {
-        console.log('got a message from other user: ' + data)
-    })
+    useEffect(() => {
+        if(connection.conn){
+            conn.on('open', function() {
+                conn.on('data', function(data) {
+                    console.log('Received data:', data);
+                    //if (typeof(data) == "boolean")
+                    if (typeof(data) == "object") {
+                        setSquares(data)
+                        setOnTurn(true)
+                    }
+                    
+                });
+          
+                conn.on('close', () => {
+                    console.log("Connection Closed")
+                });
+          
+                conn.on('error', err => {
+                    console.log("ERROR: ", err);
+                });
+            });
+            
+            //can add more
+        }
+      });
 
     return (
         <PeerContext.Provider value={connection}>

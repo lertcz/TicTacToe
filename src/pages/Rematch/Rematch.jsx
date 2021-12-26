@@ -1,23 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
+import { PeerContext } from "..//PeerInfo/PeerInfo";
 import { 
     useNavigate, 
     useParams 
 } from "react-router-dom";
 import "../../index.css";
 
-function WhoWon() {
-    const { winner } = useParams()
-
-    if (winner !== "draw") {
-        return winner + " won the game!"
-    }
-    else {
-        return "Draw!"
-    }
-}
-
 function Rematch() {
     const navigate = useNavigate();
+    const contextProps = useContext(PeerContext)
+
+    function WhoWon() {
+        const { winner } = useParams()
+    
+        if (winner !== "draw") {
+            return winner + " won the game!"
+        }
+        else {
+            return "Draw!"
+        }
+    }
+
+    function home() {
+        navigate("/TicTacToe")
+    }
+    
+    function restart() {
+        console.log(contextProps)
+        if (!contextProps.conn) {
+            navigate("/TicTacToe/localGame")
+        }
+    }
 
     return (
         <div className="centerDivElementCol min-h-screen">
@@ -25,8 +38,8 @@ function Rematch() {
                 <p className="text-5xl">{WhoWon()}</p>
             </div>
             <div>
-                <button className="button marginTopPlus" onClick={() => navigate("/TicTacToe")}>Menu</button>
-                <button className="button marginTopPlus" onClick={() => navigate("/TicTacToe/game")}>Restart</button>
+                <button className="button marginTopPlus" onClick={() => home()}>Menu</button>
+                <button className="button marginTopPlus" onClick={() => restart()}>Restart</button>
             </div>
         </div>
     )

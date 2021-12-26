@@ -24,8 +24,10 @@ function WaitingRoom() {
                 </CopyToClipboard>
             </div>
             <div>
+                <button className="button" onClick={() => navigate("/TicTacToe/localGame")}>Local Game</button>
+            </div>
+            <div>
                 <button className="button" onClick={() => navigate("/TicTacToe")}>Back</button>
-                <button className="button" onClick={() => console.log("connWaitRoom: ", contextProps.conn)/* navigate("/TicTacToe/game") */}>Load Game</button>
             </div>
         </div>
     )

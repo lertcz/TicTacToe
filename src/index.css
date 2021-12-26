@@ -35,3 +35,7 @@
 .IDtext{
     @apply mt-5
 }
+
+.setScreenSize{
+    @apply min-h-screen
+}
