@@ -47,8 +47,6 @@ function OGame() {
         contextProps.onTurn = false
         
         contextProps.conn.send(localSquares)
-        /* console.log("L", localSquares)
-        console.log("CP", contextProps.squares) */
         forceUpdate(update + 1)
     }
   }

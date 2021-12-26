@@ -14,6 +14,12 @@ function Rematch() {
         const { winner } = useParams()
     
         if (winner !== "draw") {
+            if (contextProps.shape === winner) {
+                contextProps.setOnTurn(false)
+            }
+            else {
+                contextProps.setOnTurn(true)
+            }
             return winner + " won the game!"
         }
         else {
