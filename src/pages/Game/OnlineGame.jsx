@@ -65,10 +65,6 @@ function OGame() {
     return contextProps.onTurn ? "Your turn" : "Opponent's turn"
   }
 
-  useEffect(() => {
-    console.log("changed")
-  }, [contextProps.squares]);
-
   return (
     <div className="setScreenSize">
       <div className="centerDivElement text-5xl">

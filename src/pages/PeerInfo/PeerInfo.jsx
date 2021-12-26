@@ -44,8 +44,7 @@ const PeerProvider = ({ children }) => {
         if(connection.conn){
             conn.on('open', function() {
                 conn.on('data', function(data) {
-                    console.log('Received data:', data);
-                    //if (typeof(data) == "boolean")
+                    //console.log('Received data:', data);
                     if (typeof(data) == "object") {
                         setSquares(data)
                         setOnTurn(true)

@@ -30,6 +30,7 @@ function Rematch() {
         if (!contextProps.conn) {
             navigate("/TicTacToe/localGame")
         }
+        navigate("/TicTacToe/onlineGame")
     }
 
     return (
